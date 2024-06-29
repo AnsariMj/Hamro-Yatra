@@ -1,0 +1,64 @@
+<nav class="navbar border-bottom sticky-top  navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="/listings">
+                <i class="fa-solid fa-compass"></i>
+                <span class="ms-2">Hamro Yatra</span>
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse mt-2   " id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item m-2">
+                    <a class="nav-link" href="/listings">Explore</a>
+                </li>
+            </ul>
+            <div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 rounded-5" type="search" placeholder="Search destination"
+                        aria-label="Search">
+                    <button class=" btn-search " type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i>Search</button>
+                </form>
+            </div>
+            <ul class="navbar-nav signlog ms-auto d-flex align-items-center justify-content-between ">
+                <a class="nav-link" href="/listings/new">Add Your Places </a>
+                <% if(!currentUser){%>
+                    <li class="nav-item">
+                        <button class="  m-2  buttn2px rounded   ">
+                            <a class="nav-link " href="/signup">SignUp</a>
+
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="   m-2 buttn2px  rounded   ">
+                            <a class="nav-link " href="/login">Login</a>
+
+                        </button>
+                    </li>
+                    <% } %>
+                        <% if(currentUser) { %>
+                            <li class=" nav-item">
+                                <button class="   m-2 buttn2px  rounded   ">
+                                    <a class="nav-link" href="/profile">Profile</a>
+
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="   m-2 buttn2px  rounded   ">
+                                    <a class="nav-link" href="/logout">Logout</a>
+
+                                </button>
+                            </li>
+                            <% } %>
+
+            </ul>
+        </div>
+    </div>
+</nav>

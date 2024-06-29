@@ -1,0 +1,75 @@
+<% layout("/layouts/boilerplate")%>
+
+    <body>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <br><br>
+                <h2> Add New Places</h2>
+                <form method="post" action="/listings" class="needs-validation" enctype="multipart/form-data"
+                    novalidate>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Enter Title</label>
+                        <input placeholder="Eg: Villa" type="text" name="listing[title]" class="form-control" required
+                            id="title">
+                        <div class="invalid-feedback">Please Enter Title...!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Example textarea</label>
+                        <textarea class="form-control" name="listing[description]" id="desc" rows="3"
+                            placeholder="Description of your listing" required></textarea>
+                        <div class="invalid-feedback">Please Enter Description...!</div>
+                    </div>
+                    <!-- <div class="mb-3">
+                        <label for="img" class="form-label">Enter Image URl</label>
+                        <input placeholder=" Insert the Image url " type="text" class="form-control"
+                            name="listing[image]" id="img">
+                        <div class="invalid-feedback">Please Enter Image URL...!</div>
+                    </div> -->
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" name="listing[image]" id="img" required>
+                        <div class="invalid-feedback">Please Enter Image URL...!</div>
+                    </div>
+                    <div class="row ">
+                        <div class="mb-3 col-md-4 ">
+                            <label for="price" :lass="form-label">Enter Price</label>
+                            <input placeholder="Eg:1200 NPR" name="listing[price]" type="number" class="form-control"
+                                required id="price">
+                            <div class="invalid-feedback">Please Enter Price...!</div>
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="location" class="form-label">Enter Location</label>
+                            <input placeholder="Eg:Kathmandu" name="listing[location]" type="text" class="form-control"
+                                required id="location">
+                            <div class="invalid-feedback">Please Enter Location...!</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Enter Country</label>
+                        <input placeholder="Eg:Nepal" name="listing[country]" type="text" class="form-control" required
+                            id="country">
+                        <div class="invalid-feedback">Please Enter Country...!</div>
+                    </div>
+                    <button type="submit" class="btn    btn-primary">Add Listing</button>
+                </form>
+            </div>
+        </div><br>
+
+
+        <!-- <form method="post" action="/listings">
+            <input type="text" name="listing[title]" id="title" placeholder="Title">
+            <br>
+            <textarea name="listing[description]" id="" cols="20" rows="5" placeholder=" Enter Description"></textarea>
+            <br>
+            <input type="text" name="listing[image]" id="image" placeholder=" Enter the image link">
+            <br>
+            <input type="number" name="listing[price]" id="price" placeholder="Enter Number">
+            <br>
+            <input type="text" name="listing[location]" id="" placeholder="Enter location">
+            <br>
+            <input type="text" name="listing[country]" id="" placeholder="country">
+            <br>
+            <button>Add</button>
+        </form> -->
+
+    </body>

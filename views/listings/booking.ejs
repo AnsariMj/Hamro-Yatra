@@ -1,0 +1,25 @@
+<!-- views/bookings/confirmed.ejs -->
+
+<% layout("layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <h1>Confirmed Bookings</h1>
+
+        <% if (confirmedBookings.length> 0) { %>
+            <ul class="list-group mt-4">
+                <% confirmedBookings.forEach(booking=> { %>
+                    <li class="list-group-item">
+                        <h4>
+                            <%= booking.listing.title %>
+                        </h4>
+                        <p><strong>Booked on:</strong>
+                            <%= booking.date.toDateString() %>
+                        </p>
+                        <!-- Add more details as needed -->
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } else { %>
+                <p>No confirmed bookings found.</p>
+                <% } %>
+    </div>

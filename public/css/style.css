@@ -1,0 +1,385 @@
+body {
+    font-family: 'Plus Jakarta Sana', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+body a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    height: 4rem;
+}
+
+
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.f-info-social i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+
+.buttn2px:hover {
+    background-color: transparent !important;
+    /* border: 2px solid/ rgb(28, 224, 238) !important; */
+    border: 2px solid #fe424d !important;
+
+}
+.buttn4px:hover {
+    background-color: transparent !important;
+    /* border: 2px solid/ rgb(28, 224, 238) !important; */
+    border: 4px solid #fe424d !important;
+
+}
+
+.login:hover {
+
+    background-color: transparent !important;
+    border: 2px solid rgb(28, 224, 238) !important;
+    font-size: 1rem;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card {
+    border: none !important;
+    border-bottom: 2rem !important;
+    margin-bottom: 1rem ! important;
+    /* box-shadow: 0 0 15px; */
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text {
+    font-weight: 400;
+}
+
+.list {
+    text-decoration: none ! important;
+}
+
+/* New Page */
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.1;
+    background-color: white;
+}
+
+.btn-color {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show Page */
+
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+
+}
+
+.btn1 {
+    display: flex;
+    justify-content: center;
+}
+
+.foot {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.foot a {
+    font-size: larger;
+    font-weight: 500;
+}
+
+.btnList {
+    background-color: green;
+}
+
+
+/* Ensure the card-img-overlay covers the entire image */
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    color: #ebebeb !important;
+    /* Align items to the start horizontally */
+    align-items: flex-end;
+    /* Align items to the end vertically */
+    padding: 10px;
+    /* Add some padding */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    /* Ensure the overlay is on top */
+    pointer-events: none;
+    /* Allow clicks to pass through to the image */
+}
+
+/* Ensure the card-img-top has proper positioning */
+.card-img-top {
+    position: relative;
+    z-index: 0;
+    /* Ensure the image is beneath the overlay */
+}
+
+/* Show the overlay on hover */
+.card:hover .card-img-overlay {
+    opacity: 1;
+}
+
+/* Style the button */
+.btn-book-now {
+    background-color: transparent !important;
+    border: 3px solid rgb(28, 224, 238) !important;
+    font-size: 1rem;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    pointer-events: auto;
+    /* Allow the button to be clickable */
+    z-index: 2;
+    /* Ensure the button is on top */
+    margin-left: 10px;
+    /* Add space from the left */
+    margin-bottom: 50px;
+    /* Add space from the bottom */
+}
+
+
+.card-img-overlay:hover {
+    background-color: transparent;
+
+    /* Ensure no background color change on hover */
+}
+
+
+
+
+/* General Footer Styles */
+.footer {
+    background-color: #ebebeb;
+    color: #060606;
+    padding: 30px 0;
+}
+
+.footer h4 {
+    color: #000000;
+}
+
+.footer p,
+.footer a {
+    color: #000000;
+}
+
+/* Social Icons */
+.f-info-social {
+    margin-bottom: 20px;
+}
+
+.f-info-social a {
+    color: #ccc;
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Brand Logo and Name */
+.f-info-brand {
+    margin-bottom: 20px;
+}
+
+.f-info-brand i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.f-info-brand a {
+    color: #ccc;
+    font-size: 20px;
+}
+
+/* Links Section */
+.f-info-links a {
+    color: #ccc;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.f-info-links a:hover {
+    color: #fff;
+}
+
+/* Copyright Text */
+.footer p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+
+.navbar-nav {
+    position: relative;
+    top: -4px;
+}
+
+/* Ensure the navbar items are properly aligned
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+}
+.buttn {
+    border: none;
+    background-color: transparent;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand span {
+    margin-left: 0.5rem;
+}
+
+.nav-item button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.nav-item button .nav-link {
+    padding: 0.5rem 1rem;
+} */
+.filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin: 1.5rem;
+    opacity: 0.7;
+
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+
+}
+
+
+.tax-info {
+    display: none
+}
+
+
+.tax-switch {
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 20rem;
+    padding: 1rem;
+    /* margin-right: 5rem; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+.btn-search {
+    background-color: #fe424d;
+    color: #FFF;
+    border: none;
+    border-radius: 5rem
+}
+
+
+.btn-search:hover {
+    background-color: #fe424d;
+    color: #FFF;
+    border: none;
+}
+
+.btn-search i {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.input-bt {
+    border-radius: 5rem;
+
+}

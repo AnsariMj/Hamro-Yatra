@@ -1,0 +1,98 @@
+<% layout("layouts/boilerplate") %>
+
+    <div class="container mt-5">
+        <h1>Profile Page</h1>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Welcome, <%= user.username %>!</h2>
+                <p>Email: <%= user.email %>
+                </p>
+                <p><a href="/logout" class="btn btn-danger">Logout</a></p>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Your Listings</h2>
+        <% if (listings.length> 0) { %>
+            <div class="row">
+                <% listings.forEach(listing=> { %>
+                    <div class="col-md-4 mt-3">
+                        <div class="card">
+                            <img src="<%= listing.image.url %>" width="300" height="210" class="card-img-top"
+                                alt="<%= listing.title %>">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= listing.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= listing.description %>
+                                </p>
+                                <a href="/listings/<%= listing._id %>" class="btn btn-primary">View Listing</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            <% } else { %>
+                <p>You have not added any listings yet.</p>
+                <% } %>
+
+                    <!-- Button to show confirmed bookings -->
+                     
+                    <div class="mt-5">
+                        <h1>My Confirmed Bookings</h1>
+                        <button id="toggleBookingsBtn" class="btn btn-primary">
+                            Show My Confirmed Bookings <i id="toggleArrow" class="fas fa-arrow-down"></i>
+                        </button>
+
+                        <div id="confirmedBookingsSection" class="mt-4" style="display: none;">
+                            <% if (confirmedBookings.length > 0) { %>
+                                <ul class="list-group">
+                                    <% confirmedBookings.forEach(booking => { %>
+                                        <% if (booking.listing) { %>
+                                            <li class="list-group-item rounded mb-2 border">
+                                                <h4><a href="/listings/<%= booking.listing._id %>"><%= booking.listing.title %></a></h4>
+                                                <p><strong>Booked on:</strong> <%= booking.date.toDateString() %></p>
+                                            </li>
+                                        <% } else { %>
+                                            <li class="list-group-item rounded mb-2 border">
+                                                <h4>Listing not available</h4>
+                                                <p><strong>Booked on:</strong> <%= booking.date.toDateString() %></p>
+                                            </li>
+                                        <% } %>
+                                    <% }) %>
+                                </ul>
+                            <% } else { %>
+                                <p>No confirmed bookings found.</p>
+                            <% } %>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Button to make new booking -->
+                    <div class="row mt-4 mb-4">
+                        <div class="col-md-6">
+                            <a href="/listings" class="btn btn-primary">Make New Booking</a>
+                        </div>
+                    </div>
+    </div>
+
+    <!-- Add Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById('toggleBookingsBtn').addEventListener('click', function () {
+            var bookingsSection = document.getElementById('confirmedBookingsSection');
+            var toggleArrow = document.getElementById('toggleArrow');
+            if (bookingsSection.style.display === 'none') {
+                bookingsSection.style.display = 'block';
+                this.textContent = 'Hide My Confirmed Bookings ';
+                toggleArrow.className = 'fas fa-arrow-up';
+                this.appendChild(toggleArrow);
+            } else {
+                bookingsSection.style.display = 'none';
+                this.textContent = 'Show My Confirmed Bookings ';
+                toggleArrow.className = 'fas fa-arrow-down';
+                this.appendChild(toggleArrow);
+            }
+        });
+    </script>
