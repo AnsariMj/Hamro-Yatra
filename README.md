@@ -40,12 +40,12 @@ npm install
 
 ### Set up environment variables
 
--PORT=8081
--ATLAS_URL=your_atlas_mongodb_url
--SECRET=your_session_secret
--CLOUD_NAME=your_cloudinary_cloud_name
--API_KEY=your_cloudinary_api_key
--API_SECRET=your_cloudinary_api_secret
+- PORT=8081
+- ATLAS_URL=your_atlas_mongodb_url
+- SECRET=your_session_secret
+- CLOUD_NAME=your_cloudinary_cloud_name
+- API_KEY=your_cloudinary_api_key
+- API_SECRET=your_cloudinary_api_secret
 
 
 ### Run the application
