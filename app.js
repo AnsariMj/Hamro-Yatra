@@ -1,5 +1,4 @@
 require('dotenv').config()
-console.log(process.env)
 const express = require('express')
 const app = express();
 const bodyParser = require('body-parser')
@@ -9,17 +8,15 @@ const methodOverride = require("method-override");
 const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError');
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require('passport-local');
 const User = require('./models/user')
 
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const MONGO_URL = process.env.ATLAS_URL
 
-async function main() {
-    await mongoose.connect(MONGO_URL);
-}
 main()
     .then(() => {
         console.log(" Database connected Successfully ");
@@ -28,6 +25,9 @@ main()
         console.log(err);
     });
 
+async function main() {
+    await mongoose.connect(MONGO_URL);
+}
 app.get("/listings/admin/", (req, res) => {
     throw new ExpressError(403, " Access denied");
 })
@@ -44,10 +44,23 @@ app.engine('ejs', ejsMate)
 
 
 
-
+const store = MongoStore.create({
+    mongoUrl: MONGO_URL,
+    crypto: {
+        secret: process.env.SECRET,
+        digestAlgorithm: "sha512",
+        saltLen: 24,
+        keyLen: 32,
+        digest: "hex"
+    },
+    touchAfter: 24 * 3600,
+})
+store.on("error", () => {
+    console.error("Failed to connect to MongoDB", err);
+});
 const sessionOptions = {
-    secret: "mysecretstring",
-    // secret: process.env.SECRET,
+    store,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -56,6 +69,7 @@ const sessionOptions = {
         httOnly: true
     }
 }
+
 app.use(session(sessionOptions))
 app.use(flash())
 
